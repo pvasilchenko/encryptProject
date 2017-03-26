@@ -7,29 +7,29 @@ import java.util.List;
 
 public class ReadFile {
 
-    static String line;
-    private static List<OriginFile> mass=new ArrayList<OriginFile>();
+    private String line;
+    private  List<String> mass=new ArrayList<String>();
 
-    public static void read(){
-        ReadFile test = new ReadFile();
-        test.fileRead();
-        for(OriginFile newOriginFile:test.mass)
-            System.out.println(newOriginFile.key);
 
-    }
-
-    private static void fileRead(){
-        MethodChoose Choose = new MethodChoose();
+    public List<String> fileRead(byte methodScan){
 
         BufferedReader readFromFile = null;
         try{
-            readFromFile=new BufferedReader(new FileReader("resources//primaryTextForEncrypt.txt"));
-            while((line=readFromFile.readLine())!=null)
-            {
-                OriginFile newOriginFile = new OriginFile();
-                newOriginFile.key=line;
-                mass.add(newOriginFile);
-            }
+                if(methodScan==1) {
+                    readFromFile = new BufferedReader(new FileReader("resources//primaryTextForEncrypt.txt"));
+                }
+                else if(methodScan==2)
+                {
+                    readFromFile=new BufferedReader(new FileReader("resources//primaryTextDecode.txt"));
+                }
+                else
+                {
+                    System.exit(0);
+                }
+                while((line=readFromFile.readLine())!=null)
+                {
+                    mass.add(line);
+                }
         }
         catch(IOException e)
         {
@@ -47,8 +47,13 @@ public class ReadFile {
                 }
             }
         }
+        System.out.println("Your text is:");
+        for(String originText:this.mass)
+        {
+            System.out.println(originText);
+        }
+        System.out.println();
+        return mass;
     }
-    public static class OriginFile{
-        public String key;
-    }
+
 }

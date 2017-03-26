@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class MethodChoose {
 
     static Scanner scan = new Scanner(System.in);
-    static byte methodScan;
 
-    public static byte chooseMethod(){
+    protected byte methodScan;
+    protected byte encryptMethodSelect;
+
+    public byte chooseMethod(){
         System.out.println("Hello, User! Please write a number of one item from item list, that you want to choose:");
         String[] methodMass=new String[3];
         methodMass[0]="1.Encrypt";
@@ -17,17 +19,6 @@ public class MethodChoose {
         if(scan.hasNextByte())
         {
             methodScan=scan.nextByte();
-            switch(methodScan)
-            {
-                case 1:
-                    System.out.println("Your text is: ");
-                    ReadFile.read();
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-            }
         }
         else
         {
@@ -35,30 +26,24 @@ public class MethodChoose {
         }
         return methodScan;
     }
-    public void chooseEncryptMethod(){
+
+    public byte chooseEncryptMethod(){
         System.out.println("Choose encoding method:");
-        String[] methodChoose=new String[5];
-        methodChoose[0]="1.Caesar;";
-        methodChoose[1]="2.Permutation;";
-        methodChoose[2]="3.Vizhinar;";
-        methodChoose[3]="4.One-time notepad;";
-        methodChoose[4]="5.Exit";
+        String[] encryptMethodChoose=new String[5];
+        encryptMethodChoose[0]="1.Caesar;";
+        encryptMethodChoose[1]="2.Permutation;";
+        encryptMethodChoose[2]="3.Vizhinar's with random number generator;";
+        encryptMethodChoose[3]="4.XOR;";
+        encryptMethodChoose[4]="5.Exit";
+        Arrays.stream(encryptMethodChoose).forEach(System.out::println);
         if(scan.hasNextByte())
         {
-            switch(scan.nextByte()){
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-            }
+            encryptMethodSelect = scan.nextByte();
         }
         else
         {
             System.out.println("You were wrong!");
         }
+        return encryptMethodSelect;
     }
 }

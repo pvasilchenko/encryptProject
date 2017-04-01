@@ -3,7 +3,7 @@ package com.DNURT.encryption;
 
 import java.util.List;
 
-public class Vizhinar extends Encrypt {
+public class Vizhinar{
 
     public void encryptVizhinar(List<String> massOriginText){
         char[] f = new char[0];

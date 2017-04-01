@@ -16,12 +16,13 @@ public class Encrypt {
                 break;
             case 2:
                 //Permutation
-                Vizhinar encr = new Vizhinar();
-                encr.encryptVizhinar(massOriginText);
+                Permutation per = new Permutation();
+                per.encryptPermutation(massOriginText);
                 break;
             case 3:
                 //Vizhinar
-
+                Vizhinar encr = new Vizhinar();
+                encr.encryptVizhinar(massOriginText);
                 break;
             case 4:
                 //XOR

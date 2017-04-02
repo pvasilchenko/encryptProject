@@ -2,14 +2,20 @@ package com.DNURT.encryption;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Permutation {
+
     Scanner scan = new Scanner(System.in);
-    public void encryptPermutation(List<String> massOriginText){
+
+    public char[] encryptPermutation(List<String> massOriginText){
         char[] f=new char[0];
+        char[] massChengedText=new char[0];
         byte[] userEnterNumber;
+
         userEnterNumber=userEnter();
         for(int i=0; i< massOriginText.size();i++) {
           //  String[] tmp = massOriginText.get(i).split(" ");
@@ -31,12 +37,13 @@ public class Permutation {
                     f[counter+userEnterNumber[3]]=tmp3;
 
                     counter+=4;
+                    //massChengedText[counter]=f[counter+userEnterNumber[counter]];
                 }
 
             }
             System.out.println(f);
         }
-
+        return massChengedText;
     }
     private byte[] userEnter() {
         byte outputStringMass=0;

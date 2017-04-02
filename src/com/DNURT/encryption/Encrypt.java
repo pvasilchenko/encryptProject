@@ -12,6 +12,8 @@ public class Encrypt {
         {
             case 1:
                 //Caesar
+                Ceasar ces = new Ceasar();
+                ces.encryptCeasar(massOriginText);
 
                 break;
             case 2:
